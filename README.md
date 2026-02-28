@@ -29,15 +29,6 @@ Install from [go.dev](https://go.dev/dl/).
 
 You need the joltc native library built as a shared library (`.so`, `.dylib`, or `.dll`).
 
-#### Building joltc from source
-
-```bash
-git clone https://github.com/amerkoleci/joltc.git
-cd joltc
-cmake -B build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DJPH_SHARED_LIBRARY_BUILD=ON
-cmake --build build --config Release
-```
-
 Then ensure the resulting library is in your library search path:
 
 ```bash
