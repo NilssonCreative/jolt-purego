@@ -115,6 +115,8 @@ func registerSymbols(handle uintptr) {
 	purego.RegisterLibFunc(&jphBodyInterfaceIsActive, handle, "JPH_BodyInterface_IsActive")
 	purego.RegisterLibFunc(&jphBodyInterfaceAddForce, handle, "JPH_BodyInterface_AddForce")
 	purego.RegisterLibFunc(&jphBodyInterfaceAddImpulse, handle, "JPH_BodyInterface_AddImpulse")
+	purego.RegisterLibFunc(&jphBodyInterfaceAddImpulse2, handle, "JPH_BodyInterface_AddImpulse2")
+	purego.RegisterLibFunc(&jphBodyInterfaceAddAngularImpulse, handle, "JPH_BodyInterface_AddAngularImpulse")
 	purego.RegisterLibFunc(&jphBodyInterfaceSetFriction, handle, "JPH_BodyInterface_SetFriction")
 	purego.RegisterLibFunc(&jphBodyInterfaceGetFriction, handle, "JPH_BodyInterface_GetFriction")
 	purego.RegisterLibFunc(&jphBodyInterfaceSetRestitution, handle, "JPH_BodyInterface_SetRestitution")
