@@ -105,6 +105,17 @@ func (bi *BodyInterface) AddImpulse(bodyID BodyID, impulse Vec3) {
 	jphBodyInterfaceAddImpulse(bi.handle, uint32(bodyID), &impulse)
 }
 
+// AddImpulseAtPoint applies an impulse at a specific point on the body.
+// This creates both linear and angular motion.
+func (bi *BodyInterface) AddImpulseAtPoint(bodyID BodyID, impulse Vec3, point Vec3) {
+	jphBodyInterfaceAddImpulse2(bi.handle, uint32(bodyID), &impulse, &point)
+}
+
+// AddAngularImpulse applies a pure rotational impulse to the body.
+func (bi *BodyInterface) AddAngularImpulse(bodyID BodyID, angularImpulse Vec3) {
+	jphBodyInterfaceAddAngularImpulse(bi.handle, uint32(bodyID), &angularImpulse)
+}
+
 // SetFriction sets the friction coefficient of a body.
 func (bi *BodyInterface) SetFriction(bodyID BodyID, friction float32) {
 	jphBodyInterfaceSetFriction(bi.handle, uint32(bodyID), friction)

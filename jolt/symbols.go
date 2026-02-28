@@ -101,6 +101,8 @@ var jphBodyInterfaceDeactivateBody func(bi uintptr, bodyID uint32)
 var jphBodyInterfaceIsActive func(bi uintptr, bodyID uint32) bool
 var jphBodyInterfaceAddForce func(bi uintptr, bodyID uint32, force *Vec3)
 var jphBodyInterfaceAddImpulse func(bi uintptr, bodyID uint32, impulse *Vec3)
+var jphBodyInterfaceAddImpulse2 func(bi uintptr, bodyID uint32, impulse *Vec3, point *Vec3)
+var jphBodyInterfaceAddAngularImpulse func(bi uintptr, bodyID uint32, angularImpulse *Vec3)
 var jphBodyInterfaceSetFriction func(bi uintptr, bodyID uint32, friction float32)
 var jphBodyInterfaceGetFriction func(bi uintptr, bodyID uint32) float32
 var jphBodyInterfaceSetRestitution func(bi uintptr, bodyID uint32, restitution float32)
