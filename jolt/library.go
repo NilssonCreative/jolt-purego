@@ -5,6 +5,7 @@ import (
 	"runtime"
 
 	"github.com/ebitengine/purego"
+	"golang.org/x/sys/windows"
 )
 
 // lib holds the handle to the loaded joltc shared library.
@@ -28,12 +29,12 @@ func getLibraryName() string {
 // loadLibrary opens the joltc shared library and registers all C function symbols
 // used by this wrapper. It is called once from Init().
 func loadLibrary() error {
-	handle, err := purego.Dlopen(getLibraryName(), purego.RTLD_NOW|purego.RTLD_GLOBAL)
-	if err != nil {
-		return fmt.Errorf("jolt: failed to load joltc library (%s): %w", getLibraryName(), err)
+	joltDll := windows.NewLazyDLL(getLibraryName())
+	if joltDll == nil {
+		return fmt.Errorf("jolt: failed to load joltc library (%s)", getLibraryName())
 	}
-	lib = handle
-	registerSymbols(handle)
+	lib = joltDll.Handle()
+	registerSymbols(joltDll.Handle())
 	return nil
 }
 
